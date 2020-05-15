@@ -1,3 +1,5 @@
+<?php include "db.php"; ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -301,14 +303,26 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">Menüler</li>
                 <li class="active">
-                     <a href="index.html">
-                        <i class="fa fa-th"></i> <span>Anasayfa</span>
+                     <a href="index.php">
+                        <i class="fa fa-th"></i> <span>Dashboard</span>
 					</a>
                 </li>
 				<li>
-                     <a href="index.html">
-                        <i class="fa fa-th"></i> <span>Menü 2</span>
+                     <a href="./anasayfa.php">
+                        <i class="fa fa-th"></i> <span>Anasayfa</span>
 					</a>
+                </li>
+                <li>
+                    <a href="calısmalarım.php">
+                    <i class="fa fa-th"></i> <span>Çalışmalarım</span>
+                    </a>
+                
+                </li>
+                <li>
+                    <a href="hakkımda.php">
+                    <i class="fa fa-th"></i> <span>Hakkımda Sayfam</span>
+                    </a>
+                
                 </li>
 			</ul>
         </section>

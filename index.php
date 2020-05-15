@@ -1,18 +1,23 @@
 <?php include 'include/header.php';?>
+<?php    //data execute 
+	$ayarcek= $db->prepare("SELECT * from anasayfa");
+	$ayarcek->execute();
+	$row = $ayarcek->fetch(PDO::FETCH_OBJ);
 
+
+?>
 				<!-- Intro -->
 					<section id="top" class="one dark cover">
 						<div class="container">
 
 							<header>
-								<h2 class="alt">Hi! I'm <strong>Prologue</strong>, a <a href="http://html5up.net/license">free</a> responsive<br />
-								site template designed by <a href="http://html5up.net">HTML5 UP</a>.</h2>
-								<p>Ligula scelerisque justo sem accumsan diam quis<br />
+								<h2 class="alt">Hi! I'm <strong><?php echo $row->name ?></strong>, </h2>
+								<p><?php echo $row->yazi1 ?><br />
 								vitae natoque dictum sollicitudin elementum.</p>
 							</header>
 
 							<footer>
-								<a href="#portfolio" class="button scrolly">Magna Aliquam</a>
+								<a href="#portfolio" class="button scrolly"><?php echo $row->buton ?></a>
 							</footer>
 
 						</div>
@@ -31,50 +36,31 @@
 							Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis
 							fusce hendrerit lacus ridiculus.</p>
 
+
+
+							<?php $calismalarım = $db->query("SELECT * FROM calısmalar")->fetchAll(PDO::FETCH_OBJ);  ?>
 							<div class="row">
+
+							<?php 	foreach ($calismalarım as $row) { ?>
+								
+						
 								<div class="4u 12u$(mobile)">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+										<a href="detay.php?id=<?= $row->id ?>" class="image fit"><img src="assets/upload/img1.jpg" alt="" /></a>
 										<header>
-											<h3>Ipsum Feugiat</h3>
+											<h3><?php echo $row->baslik ?></h3>
 										</header>
 									</article>
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-										<header>
-											<h3>Rhoncus Semper</h3>
-										</header>
-									</article>
+									
 								</div>
-								<div class="4u 12u$(mobile)">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-										<header>
-											<h3>Magna Nullam</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-										<header>
-											<h3>Natoque Vitae</h3>
-										</header>
-									</article>
-								</div>
-								<div class="4u$ 12u$(mobile)">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-										<header>
-											<h3>Dolor Penatibus</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-										<header>
-											<h3>Orci Convallis</h3>
-										</header>
-									</article>
-								</div>
-							</div>
+
+							<?php } ?>
+
+
+
+
+
+								 
 
 						</div>
 					</section>
